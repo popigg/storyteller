@@ -1,0 +1,34 @@
+<!doctype HTML>
+<html>
+<head>
+<title>Prueba 1</title>
+</head>
+<body>
+<h1>Primera Prueba</h1>
+<p>
+Suma los siguientes numeros y escribe el resultado en la casilla.	
+
+<br />
+<span>Numero primero: </span><b>{{ firstN }}</b>
+<br />
+<span>Numero segundo: </span><b>{{ secondN }}</b>
+<br />
+<form action="/prueba1" method="POST">
+<input type="text" name="inputSum" value="" />
+<input type="hidden" name="firstN" value="{{ firstN }}">
+<input type="hidden" name="secondN" value="{{ secondN }}">
+<input type="hidden" name="resultSum" value="{{ resultSum }}">
+<p>
+<input type="submit" value="Contesta Ahora">
+
+{% if inputSum == resultSum %}
+	<p>
+	Primera prueba superada. Para continuar pulsa
+	<a href="/prueba2">aqui</a>
+{% elseif inputSum !== '' %}
+	<p>
+	Buen intento, esta vez no lo has conseguido, inténtalo otra vez!!!		
+{% endif %}
+
+</body>
+</html>
