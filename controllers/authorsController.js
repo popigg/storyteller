@@ -1,59 +1,59 @@
 'use strict';
 
-var User = require('../models/user.js');
+var Author = require('../models/author.js');
 
 exports.createUser = function(req, res) {
-    User.create(req.body, function(error, story) {
+    Author.create(req.body, function(error, author) {
         if (error) {
             res.send(501, error);
             return;
         }
 
-        res.send(story);
+        res.send(author);
     });
 };
 
 exports.getUser = function(req, res) {
-    User.findById(req.param.Id, function(error, story){
+    Author.findById(req.param.Id, function(error, author){
         if (error) {
             res.send(501, error);
             return;
         }
 
-        res.send(story)
+        res.send(author)
     });
 };
 
 exports.updateUser = function(req, res) {
-    User.findOneAndUpdate(req.params.Id, req.body, function(errror, story){
+    Author.findOneAndUpdate(req.params.Id, req.body, function(errror, author){
         if (error) {
             res.send(501, error);
             return;
         }
 
-        res.send(story);
+        res.send(author);
     });
 };
 
 exports.removeUser = function(req, res) {
-    User.findOneAndRemove(req.params.Id, function(errror, story){
+    Author.findOneAndRemove(req.params.Id, function(errror, author){
         if (error) {
             res.send(501, error);
             return;
         }
 
-        res.send(story);
+        res.send(author);
     });
 };
 
 exports.getUsers = function(req, res) {
-    User.find(function(error, stories) {
+    Author.find(function(error, authors) {
         if (error) {
             res.send(501, error);
             return;
         }
 
-        res.send(stories);
+        res.send(authors);
     });
 };
 
