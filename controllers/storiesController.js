@@ -3,7 +3,6 @@
 var Story = require('../models/story.js');
 
 exports.createStory = function(req, res) {
-    console.log(req.body);
     Story.create(req.body, function(error, story) {
         if (error) {
             res.send(501, error);
@@ -15,7 +14,8 @@ exports.createStory = function(req, res) {
 };
 
 exports.getStory = function(req, res) {
-    Story.findById(req.param.Id, function(error, story){
+    console.log(req.params.id);
+    Story.findById(req.params.id, function(error, story){
         if (error) {
             res.send(501, error);
             return;
@@ -26,7 +26,7 @@ exports.getStory = function(req, res) {
 };
 
 exports.updateStory = function(req, res) {
-    Story.findOneAndUpdate(req.params.Id, req.body, function(errror, story){
+    Story.findOneAndUpdate(req.params.id, req.body, function(error, story){
         if (error) {
             res.send(501, error);
             return;
@@ -37,7 +37,7 @@ exports.updateStory = function(req, res) {
 };
 
 exports.removeStory = function(req, res) {
-    Story.findOneAndRemove(req.params.Id, function(errror, story){
+    Story.findOneAndRemove(req.params.id, function(errror, story){
         if (error) {
             res.send(501, error);
             return;

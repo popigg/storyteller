@@ -9,7 +9,7 @@ var express     = require('express');
 var app         = express();
 var router      = express.Router();
 var cons        = require('consolidate');
-var routes      = require('./routes/storiesHandler.js');
+var routes      = require('./routes/handler.js');
 var bodyParser  = require('body-parser');
 
 /**

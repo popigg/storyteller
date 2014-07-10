@@ -14,7 +14,7 @@ exports.createAuthor = function(req, res) {
 };
 
 exports.getAuthor = function(req, res) {
-    Author.findById(req.param.Id, function(error, author){
+    Author.findById(req.param.id, function(error, author){
         if (error) {
             res.send(501, error);
             return;
@@ -25,7 +25,7 @@ exports.getAuthor = function(req, res) {
 };
 
 exports.updateAuthor = function(req, res) {
-    Author.findOneAndUpdate(req.params.Id, req.body, function(errror, author){
+    Author.findOneAndUpdate(req.params.id, req.body, function(errror, author){
         if (error) {
             res.send(501, error);
             return;
@@ -36,7 +36,7 @@ exports.updateAuthor = function(req, res) {
 };
 
 exports.removeAuthor = function(req, res) {
-    Author.findOneAndRemove(req.params.Id, function(errror, author){
+    Author.findOneAndRemove(req.params.id, function(errror, author){
         if (error) {
             res.send(501, error);
             return;
