@@ -9,6 +9,7 @@
   "author": "",
   "license": "BSD-2-Clause",
   "dependencies": {
+    "body-parser": "^1.4.3",
     "consolidate": "~0.10.0",
     "express": "^4.1.2",
     "mongoose": "^3.8.12",

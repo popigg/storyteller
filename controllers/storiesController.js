@@ -3,6 +3,7 @@
 var Story = require('../models/story.js');
 
 exports.createStory = function(req, res) {
+    console.log(req.body);
     Story.create(req.body, function(error, story) {
         if (error) {
             res.send(501, error);

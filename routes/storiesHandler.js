@@ -1,13 +1,16 @@
 'use strict';
 
-var storiesController = require('../controller/storiesController.js');
-var userController = require('../controller/userController.js');
+var storiesController = require('../controllers/storiesController.js');
+var userController = require('../controllers/authorsController.js');
 
 module.exports = function(router) {
 
 	router.route('/story/:id')
-        .post(storiesController.createStory)
         .get(storiesController.getStory)
         .put(storiesController.updateStory)
-        .remove(storiesController.removeStory);
+        .delete(storiesController.removeStory);
+
+    router.route('/story')
+        .post(storiesController.createStory);
+
 }

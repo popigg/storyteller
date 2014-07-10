@@ -5,7 +5,7 @@ var storySchema = new Schema({
     title       : String,
     body        : String,
     created_at  : { type: Date, default: Date.now },
-    upadated_at : { type: Date, default: Date.now },
+    updated_at  : { type: Date, default: Date.now },
     author      : { type: Schema.Types.ObjectId, ref: 'Author' }
 });
 
