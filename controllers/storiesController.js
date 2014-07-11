@@ -1,28 +1,38 @@
 'use strict';
 
-var Story = require('../models/story.js');
+var Story   = require('../models/story.js');
+var Author  = require('../models/author.js');
 
 exports.createStory = function(req, res) {
-    Story.create(req.body, function(error, story) {
+    Author.create(req.body.author, function(error, author) {
         if (error) {
             res.send(501, error);
             return;
         }
+        req.body.story.author = author._id;
 
-        res.send(story);
+        Story.create(req.body.story, function(error, story) {
+            if (error) {
+                res.send(501, error);
+                return;
+            }
+
+            res.send(story);
+        });
     });
 };
 
 exports.getStory = function(req, res) {
-    console.log(req.params.id);
-    Story.findById(req.params.id, function(error, story){
-        if (error) {
-            res.send(501, error);
-            return;
-        }
+    Story.findById(req.params.id)
+        .populate('author')
+        .exec(function(error, story) {
+            if (error) {
+                res.send(501, error);
+                return;
+            }
 
-        res.send(story)
-    });
+            res.send(story)
+        });
 };
 
 exports.updateStory = function(req, res) {

@@ -6,7 +6,7 @@ var storySchema = new Schema({
     body        : { type: String, required: true },
     created_at  : { type: Date, required: true, default: Date.now },
     updated_at  : { type: Date, required: true, default: Date.now },
-    author      : { type: Schema.Types.ObjectId, ref: 'Author', required: true}
+    author      : { type: Schema.Types.ObjectId, ref: 'Author', required: true }
 });
 
 module.exports = mongoose.model('Story', storySchema);
